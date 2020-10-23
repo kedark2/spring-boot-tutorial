@@ -25,17 +25,20 @@ public class Services {
 	@Column(name="service_provider")
 	private String serviceProvider;
 
-	
+	@Column(name="service_description")
+	private String serviceDescription;
 	
 	public Services() {
 
 	}
 
-	public Services(String serviceName, float servicePrice, String serviceProvider) {
+
+	public Services(String serviceName, float servicePrice, String serviceProvider, String serviceDescription) {
 		super();
 		this.serviceName = serviceName;
 		this.servicePrice = servicePrice;
 		this.serviceProvider = serviceProvider;
+		this.serviceDescription= serviceDescription;
 	}
 
 	public long getId() {
@@ -70,7 +73,14 @@ public class Services {
 		this.serviceProvider = serviceProvider;
 	}
 	
-	
+	public String getServiceDescription() {
+		return serviceDescription;
+	}
+
+	public void setServiceDescription(String serviceDescription) {
+		this.serviceDescription = serviceDescription;
+	}
+
 	
 
 }

@@ -59,6 +59,7 @@ package com.kedar.springboot.controller;
 			service.setServiceName(serviceDetails.getServiceName());
 			service.setServicePrice(serviceDetails.getServicePrice());
 			service.setServiceProvider(serviceDetails.getServiceProvider());
+			service.setServiceDescription(serviceDetails.getServiceDescription());
 			
 			Services updatedServices = servicesRepository.save(service);
 			
