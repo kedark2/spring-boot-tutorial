@@ -9,13 +9,16 @@ export default class CreateServicesComponent extends Component {
             id: this.props.match.params.id,
             serviceName: '',
             servicePrice: 0.0,
-            serviceProvider: ''
+            serviceProvider: '',
+            serviceDescription: ''
+
 
         }
         this.changeServiceNameHandler = this.changeServiceNameHandler.bind(this);
         this.changeServicePriceHandler = this.changeServicePriceHandler.bind(this);
         this.changeServiceProviderHandler = this.changeServiceProviderHandler.bind(this);
         this.saveOrUpdateService = this.saveOrUpdateService.bind(this);
+        this.changeServiceDescriptionHandler = this.changeServiceDescriptionHandler.bind(this);
     }
 
     componentDidMount() {
@@ -27,7 +30,8 @@ export default class CreateServicesComponent extends Component {
                 this.setState({
                     serviceName: service.serviceName,
                     servicePrice: service.servicePrice,
-                    serviceProvider: service.serviceProvider
+                    serviceProvider: service.serviceProvider,
+                    serviceDescription: service.serviceDescription
                 })
             });
         }
@@ -41,9 +45,12 @@ export default class CreateServicesComponent extends Component {
     changeServiceProviderHandler = (event) => {
         this.setState({ serviceProvider: event.target.value });
     }
+    changeServiceDescriptionHandler = (event) => {
+        this.setState({ serviceDescription: event.target.value })
+    }
     saveOrUpdateService(e) {
         e.preventDefault();
-        let services = { serviceName: this.state.serviceName, servicePrice: this.state.servicePrice, serviceProvider: this.state.serviceProvider };
+        let services = { serviceName: this.state.serviceName, servicePrice: this.state.servicePrice, serviceProvider: this.state.serviceProvider, serviceDescription: this.state.serviceDescription };
         console.log('services => ' + JSON.stringify(services));
         console.log(this.state.id)
         if (this.state.id === "service_add") {
@@ -51,11 +58,11 @@ export default class CreateServicesComponent extends Component {
                 this.props.history.push('/services')
             });
         } else {
+            console.log(services)
             Services.updateServices(services, this.state.id).then(res => {
                 this.props.history.push('/services');
             });
         }
-
     }
     cancel() {
         this.props.history.push('/services')
@@ -105,6 +112,15 @@ export default class CreateServicesComponent extends Component {
                                             className="form-control"
                                             value={this.state.serviceProvider}
                                             onChange={this.changeServiceProviderHandler} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="serviceDescription">Service Description:</label>
+                                        <input type="text"
+                                            placeholder="Service Description"
+                                            name="servicedescription"
+                                            className="form-control"
+                                            value={this.state.serviceDescription}
+                                            onChange={this.changeServiceDescriptionHandler} />
                                     </div>
                                     <button className="btn btn-success" onClick={this.saveOrUpdateService}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
