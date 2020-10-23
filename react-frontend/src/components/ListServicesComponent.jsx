@@ -22,7 +22,7 @@ class ListServicesComponent extends Component {
         console.log(this.services)
     }
     addService() {
-        this.props.history.push('/add-service/_add')
+        this.props.history.push('/add-service/service_add')
     }
     editService(id) {
         this.props.history.push(`/add-service/${id}`)

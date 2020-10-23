@@ -9,6 +9,7 @@ import CreateEmployeeComponent from './components/CreateEmployeeComponent'
 import ViewEmployeeComponent from './components/ViewEmployeeComponent'
 import Navbar from './components/NavbarComponent'
 import ListServicesComponent from './components/ListServicesComponent'
+import CreateServicesComponent from './components/CreateServicesComponent'
 function App() {
   return (
 
@@ -23,7 +24,8 @@ function App() {
             <Route path="/add-employee/:id" component={CreateEmployeeComponent} />
             <Route path="/view-employee/:id" component={ViewEmployeeComponent} />
             <Route path="/services" component={ListServicesComponent} />
-
+            <Route path="/add-service/:id" component={CreateServicesComponent} />
+            {/* <Route path="/view-employee/:id" component={ViewEmployeeComponent} /> */}
 
           </Switch>
         </div>
