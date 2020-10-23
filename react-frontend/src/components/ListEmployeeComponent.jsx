@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
+import ImageLoader from 'react-image-file'
 
 class ListEmployeeComponent extends Component {
     constructor(props) {
@@ -17,7 +18,9 @@ class ListEmployeeComponent extends Component {
     componentDidMount() {
         EmployeeService.getEmployees().then((res) => {
             this.setState({ employees: res.data })
+            console.log(res.data)
         })
+        console.log(this.employees)
     }
     addEmployee() {
         this.props.history.push('/add-employee/_add')
@@ -35,6 +38,8 @@ class ListEmployeeComponent extends Component {
         this.props.history.push(`/view-employee/${id}`)
     }
     render() {
+        const image = new Image();
+
         return (
             <div>
                 <h2 className="text-center">Employees List</h2>
