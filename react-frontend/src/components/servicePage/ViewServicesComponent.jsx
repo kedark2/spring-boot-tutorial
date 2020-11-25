@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Services from '../services/Services'
+import Services from '../../services/Services'
 
 export default class ViewServicesComponent extends Component {
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EmployeeService from '../services/EmployeeService';
+import EmployeeService from '../../services/EmployeeService';
 import ImageLoader from 'react-image-file'
 
 class ListEmployeeComponent extends Component {

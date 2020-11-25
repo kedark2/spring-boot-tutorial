@@ -20,7 +20,7 @@ import com.kedar.springboot.exception.ResourceNotFoundException;
 import com.kedar.springboot.model.Employee;
 import com.kedar.springboot.repository.EmployeeRepository;
 
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeController {

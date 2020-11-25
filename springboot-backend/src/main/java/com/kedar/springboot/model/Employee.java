@@ -26,26 +26,38 @@ public class Employee {
 	private String emailId;
 	
 	@Lob
-	@Column(name="puja_img")
-	private byte[] photo;
+	@Column(name="photo")
+	private String photo;
+	
+	@Column(name="details")
+	private String details;
 	
 	public Employee() {
 		
 	}
 	
-	public Employee(String firstName, String lastName, String emailId, byte[] photo) {
+	public Employee(String firstName, String lastName, String emailId, String photo, String details) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
 		this.photo = photo;
+		this.details = details;
 	}
 
-	public byte[] getPhoto() {
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
